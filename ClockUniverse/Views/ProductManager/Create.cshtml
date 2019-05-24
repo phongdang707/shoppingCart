@@ -1,0 +1,146 @@
+﻿@model ClockUniverse.ProductTable
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+<style>
+    h2 {
+        text-align: center;
+        margin-top: 4px;
+    }
+</style>
+
+<h2>THÊM MỚI SẢN PHẨM</h2>
+
+@using (Html.BeginForm("Create", "ProductManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <div class="form-horizontal">
+        <h4></h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <strong>Tên Đồng Hồ</strong>
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Watch_Name)
+                @Html.ValidationMessageFor(model => model.Watch_Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <strong>Mô Tả Đồng Hồ</strong>
+            </div>
+            <div class="col-md-10">
+                @*@Html.TextArea("Watch_Description", String.Empty)
+                    @Html.ValidationMessageFor(model => model.Watch_Description)*@
+                <textarea cols="20" data-val="true" data-val-required="Bạn chưa nhập mô tả đồng hồ" id="Watch_Description" name="Watch_Description" rows="2"></textarea>
+                <span class="field-validation-valid" data-valmsg-for="Watch_Description" data-valmsg-replace="true"></span>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <strong>Thông Số Đồng Hồ</strong>
+            </div>
+            <div class="col-md-10">
+                @*@Html.TextArea("Watch_Static", String.Empty)
+                    @Html.ValidationMessageFor(model => model.Watch_Static)*@
+                <textarea cols="20" data-val="true" data-val-required="Bạn chưa nhập thông số đồng hồ" id="Watch_Static" name="Watch_Static" rows="2"></textarea>
+                <span class="field-validation-valid" data-valmsg-for="Watch_Static" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <strong>Giá Niêm Yết</strong>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Original_Price, null, new { @class = "numberinput" })
+                @Html.ValidationMessageFor(model => model.Original_Price)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <strong>Giá Khuyến Mãi</strong>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Selling_Price, null, new { @class = "numberinput" })
+                @Html.ValidationMessageFor(model => model.Selling_Price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <strong>Số Lượng</strong>
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.InStock, null, new { @class = "numberinput" })
+                @Html.ValidationMessageFor(model => model.InStock)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                <strong>Loại Đồng Hồ</strong>
+            </div>
+            <div class="col-md-10">
+                @Html.DropDownList("WatchType_ID")
+                @Html.ValidationMessageFor(model => model.WatchType_ID)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="1339" class="control-label col-md-2"><strong>Hình Ảnh</strong></label>
+            <div class="col-md-10">
+                <input type="file" name="Image" id="1339" onchange="readIMG(this)" required/>
+                <img id="Demo" />
+
+                <input type="file" name="Image1" id="1339" onchange="readIMG(this)" required />
+                <img id="Demo" />
+
+                <input type="file" name="Image2" id="1339" onchange="readIMG(this)" required/>
+                <img id="Demo" />
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <p>
+                <input type="submit" value="Tạo Sản Phẩm" class="btn btn-default" />
+                @Html.ActionLink("Quay Lại", "Index", null, new { @class = "btn btn-default " })
+            </p>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function readIMG(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $(input).next()
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

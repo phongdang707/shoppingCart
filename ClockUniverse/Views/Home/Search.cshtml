@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="component-ttl"><span> Item </span></h3>
+                    <p><mark> @ViewBag.Message</mark></p>
+                    <div class="space50">&nbsp;</div>
+                </div>
+            </div>
+            <!-- section title -->
+
+            <div class="row">
+                @foreach (var item in ViewData["Item"] as IList<ClockUniverse.ProductTable>)
+                {
+                    <div class="col-sm-3">
+                        <div class="single-item">
+                            <div class="single-item-header">
+                                <a href="@Url.Action("product_detail","products", new { @Watch_ID = item.Watch_ID})"><img src="/Content/images/products/1.jpg" alt=""></a>
+                            </div>
+                            @if (item.Original_Price < item.Selling_Price)
+                            {
+                                <div class="single-item-body">
+                                    <p class="single-item-title">@item.Watch_Name</p>
+                                    <p class="single-item-price">
+                                        <span>@item.Selling_Price</span>
+                                    </p>
+                                </div>
+                               
+                            }
+                            else
+                            {
+                                <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+                                <div class="single-item-body">
+                                    <p class="single-item-title">@item.Watch_Name</p>
+                                    <p class="single-item-price">
+                                        <span class="flash-del">@item.Original_Price</span>
+                                        <span class="flash-sale">@item.Selling_Price</span>
+                                    </p>
+                                </div>
+                            }
+                            <div class="space50">&nbsp;</div>
+                            <div class="single-item-caption">
+                                <a class="add-to-cart pull-left" href=""><i class="fa fa-shopping-cart"></i></a>
+                                <a class="beta-btn primary" href="@Url.Action("product_detail","products", new { @Watch_ID = item.Watch_ID})">Chi tiết <i class="fa fa-chevron-right"></i></a>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="space50">&nbsp;</div>
+                    </div>
+                     <div class="space50">&nbsp;</div>
+
+
+                 <div class="space50">&nbsp;</div>
+                }
+
+            </div>
+
+
+            <div class="space50">&nbsp;</div>
+
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>

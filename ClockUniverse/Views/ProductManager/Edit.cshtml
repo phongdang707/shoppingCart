@@ -1,0 +1,129 @@
+﻿@model ClockUniverse.ProductTable
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+<style>
+    h2 {
+        text-align: center;
+    }
+
+    h4 {
+        font-size: x-large;
+        font-weight: bold;
+    }
+</style>
+
+<h2>CẬP NHẬT THÔNG TIN SẢN PHẨM</h2>
+
+@using (Html.BeginForm("Edit", "ProductManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Watch_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Watch_Name, "Tên Đồng Hồ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Watch_Name)
+                @Html.ValidationMessageFor(model => model.Watch_Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Watch_Description, "Mô Tả Đồng Hồ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("Watch_Description", String.Empty)
+                @Html.ValidationMessageFor(model => model.Watch_Description)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Watch_Static, "Thông Số Đồng Hồ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("Watch_Static", String.Empty)
+                @Html.ValidationMessageFor(model => model.Watch_Static)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Original_Price, "Giá Niêm Yết", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Original_Price, null, new { @class = "numberinput" })
+                @Html.ValidationMessageFor(model => model.Original_Price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Selling_Price, "Giá Khuyến Mãi", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Selling_Price, null, new { @class = "numberinput" })
+                @Html.ValidationMessageFor(model => model.Selling_Price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InStock, "Số Lượng", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.InStock, null, new { @class = "numberinput" })
+                @Html.ValidationMessageFor(model => model.InStock)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WatchType_ID, "Loại Đồng Hồ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("WatchType_ID", String.Empty)
+                @Html.ValidationMessageFor(model => model.WatchType_ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="1339" class="control-label col-md-2">Hình Ảnh</label>
+            <div class="col-md-10">
+                <input type="file" name="Image" id="1339" onchange="readIMG(this)" required />
+                <img src="@Url.Content("/ProductManager/Image/"+Model.Watch_ID)" id="Demo" />
+
+                <input type="file" name="Image1" id="1339" onchange="readIMG(this)" required />
+                <img src="@Url.Content("/ProductManager/Image1/"+Model.Watch_ID)" id="Demo" />
+
+                <input type="file" name="Image2" id="1339" onchange="readIMG(this)" required />
+                <img src="@Url.Content("/ProductManager/Image2/"+Model.Watch_ID)" id="Demo" />
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <p>
+                <input type="submit" value="Cập Nhật Sản Phẩm" class="btn btn-default" />
+                @Html.ActionLink("Quay Lại", "Index", null, new { @class = "btn btn-default " })
+            </p>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function readIMG(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $(input).next()
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(150);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}

@@ -1,0 +1,165 @@
+﻿@using ClockUniverse.Models;
+@model List<ShoppingCart>
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    img.pull-left {
+    width: 80px;
+    height: 80px;
+}
+    input[type="submit"] {
+        background-color: #3a5c83;
+        border: none;
+    }
+    .table-option {
+        margin-bottom: 0px;
+        color: #070707;
+    }
+    input[type="submit"] {
+        margin-bottom: 12px;
+        position: relative;
+        top: 161px;
+        left: 457px;
+        width: 200px;
+        height: 43px;
+        border-radius: 4px;
+        color: white;
+        background-color: #0277b8;
+        font-size: 17px;
+        font-weight: 500;
+    }
+    h3 {
+        margin-top: 20px;
+        margin-left: 122px;
+    }
+    p#sluong {
+        margin-top: -27px;
+        margin-left: 272px;
+        font-size: 17px;
+    }
+    span.tt {
+        font-size: 23px;
+        font-weight: 500;
+    }
+    .cart-totals-row {
+        height: 62px;
+        line-height: 55px;
+        border-top: 1px solid #e8e8e8;
+        font-size: 18px;
+        text-align: left;
+    }
+    p.vat {
+        margin-left: 20px;
+        margin-top: -35px;
+    }
+    .cart-totals {
+        width: 440px;
+        text-align: center;
+        border: 1px solid #e8e8e8;
+        margin-top: -39px;
+    }
+</style>
+
+
+    <!-- #header -->
+
+    <h3>GIỎ HÀNG</h3> <p id="sluong">(@Html.Action("CartPartial", "ShoppingCart") sản phẩm)</p>
+    <div class="container">
+        <div id="content">
+
+            <div class="table-responsive">
+                <!-- Shop Products Table -->
+                <table class="shop_table beta-shopping-cart-table" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="product-name">Product</th>
+                            <th class="product-price">Price</th>
+                            <th class="product-quantity">Qty.</th>
+                            <th class="product-subtotal">Total</th>
+                            <th class="product-remove">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="cart_item">
+                                <td class="product-name">
+                                    <div class="media">
+                                        <img class="pull-left" src="@Url.Content("~/productmanager/Image/"+item.iMaSP)" alt="">
+                                        <div class="media-body">
+                                            <p class="font-large table-title">@item.TenSP</p>
+                                            @if (@item.type == 0)
+                                            {
+                                                <p class="table-option">Nam</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="table-option">Nu</p>
+                                            }
+                                            <div class="edit1">
+                                                @Html.ActionLink("Chỉnh sửa giỏ hàng", "EditShoppingCart")
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="product-price">
+                                    <span class="amount">
+                                        @string.Format("{0:0,0}", item.donGia) ₫
+                                    </span>
+                                </td>
+                               
+                                <td class="product-quantity">
+                                    <p>
+                                        @item.soLuong
+                                    </p>
+
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="amount">
+                                        @string.Format("{0:0,0}", item.thanhTien) ₫
+                                    </span>
+                                </td>
+                                <td class="product-remove">
+                                    <a href="#" class="remove" title="Remove this item">
+                                        @Html.ActionLink("Xóa", "DeleteShoppingCart", new { @iMaSP = item.iMaSP })
+
+
+                                    </a>
+                                </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <!-- End of Shop Table Products -->
+            </div>
+
+            <!-- Cart Collaterals -->
+            @using (Html.BeginForm("index", "Checkout"))
+            {
+                <a href="@Url.Action("Index","Checkout")">
+                    <input type="submit" value="Tiến hành đặt hàng" />
+                </a>
+            }
+            <div class="cart-collaterals">
+                <div class="cart-totals pull-right">
+
+                    <div class="cart-totals-row"><h5 class="cart-total-title">Tổng giỏ hàng</h5></div>
+                    <div class="cart-totals-row"><span>Tổng tiền:</span> <span class="tt">@Html.Action("_TotalPartial", "ShoppingCart") ₫</span> <p class="vat">(Đã bao gồm VAT)</p></div>
+                    <div class="cart-totals-row"><span>Phí Ship:</span> <span>Miễn phí</span></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!-- End of Cart Collaterals -->
+            <div class="clearfix"></div>
+        </div> <!-- #content -->
+    </div> <!-- .container -->
+    <!-- #footer -->
+    <!-- .copyright -->
+    <!-- include js files -->
+

@@ -1,0 +1,97 @@
+﻿@model ClockUniverse.Order
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-group">
+    <h2 style="color:steelblue; margin-top:1% ">Thông tin giao hàng</h2>
+</div>
+
+
+@using (Html.BeginForm("Create", "OrderManager"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="form-horizontal">
+
+        <hr />
+
+        <div class="form-group1" style="width: 80%">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Customer_Name, "Họ tên khách hàng (*) ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Customer_Name)
+                    @Html.ValidationMessageFor(model => model.Customer_Name, "", new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Customer_Phone, "Số điện thoại (*) ", new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(model => model.Customer_Phone, new { @class = "numberinput" })
+                    @Html.ValidationMessageFor(model => model.Customer_Phone, "", new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Customer_Email, "Email (*) ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Customer_Email)
+                    @Html.ValidationMessageFor(model => model.Customer_Email, "", new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Deliver_Address, "Địa chỉ giao hàng (*) ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.TextAreaFor(model => model.Deliver_Address)
+                     @Html.ValidationMessageFor(model => model.Deliver_Address,"",new {@style ="color:red" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Trang chủ", "Index", null, new { @class = "btn btn-warning" })
+                    <input type="submit" value="Xác nhận" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".numberinput").forceNumeric();
+    });
+
+    // forceNumeric() plug-in implementation
+    jQuery.fn.forceNumeric = function () {
+        return this.each(function () {
+            $(this).keydown(function (e) {
+                var key = e.which || e.keyCode;
+
+                if (!e.shiftKey && !e.altKey && !e.ctrlKey &&
+                    // numbers
+                    key >= 48 && key <= 57 ||
+                    // Numeric keypad
+                    key >= 96 && key <= 105 ||
+                    // comma, period and minus, . on keypad
+                    key == 190 || key == 188 || key == 109 || key == 110 ||
+                    // Backspace and Tab and Enter
+                    key == 8 || key == 9 || key == 13 ||
+                    // Home and End
+                    key == 35 || key == 36 ||
+                    // left and right arrows
+                    key == 37 || key == 39 ||
+                    // Del and Ins
+                    key == 46 || key == 45)
+                    return true;
+
+                return false;
+            });
+        });
+    }
+</script>

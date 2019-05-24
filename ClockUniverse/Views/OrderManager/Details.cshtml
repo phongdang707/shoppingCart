@@ -1,0 +1,107 @@
+﻿@model ClockUniverse.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2 style="text-align:center">CHI TIẾT ĐƠN HÀNG</h2>
+<div class="form-group fa-border " style="font-family:Arial;font-size: 20px ;width:50%;margin:auto;margin-bottom:1%">
+    <table class="table ">
+        <tr style="background-color:aqua">
+            <th style="color:blue">Thông tin đơn hàng : #HD@(Model.Order_ID) </th>
+            <td style="color:gray">(Ngày đặt:@Model.Order_Date)</td>
+        </tr>
+        <tr style="font-weight:bold; border-top:double">
+            <th>Thông tin thanh toán</th>
+            <th>Địa chỉ giao hàng</th>
+            <th>Tình trạng đơn hàng</th>
+        </tr>
+        <tr>
+            <td> @Model.Customer_Name</td>
+            <td>@Model.Customer_Name</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td> @Model.Customer_Email</td>
+            <td>@Model.Deliver_Address</td>
+            <td>
+                @switch (Model.Deliver_Status)
+                {
+                    case 1:
+                        <div>
+                            <img src="~/Content/orderstatus/Process.jpg" />
+                        </div>
+                        break;
+                    case 2:
+                        <div>
+                            <img src="~/Content/orderstatus/Received.jpg" />
+                        </div>
+                        break;
+                    case 3:
+                        <div>
+                            <img src="~/Content/orderstatus/Ondeliver.jpg" />
+                        </div>
+                        break;
+                    case 4:
+                        <div>
+                            <img src="~/Content/orderstatus/Done.jpg" />
+                        </div>
+                        break;
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>@Model.Customer_Phone</td>
+            <td>@Model.Customer_Phone</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Ngày giao hàng: @Model.Delivery_Date.ToShortDateString() - @(Model.Delivery_Date.AddDays(2).ToShortDateString()) </td>
+        </tr>
+    </table>
+
+
+</div>
+<div class="form-group">
+    <table class=" table table-bordered">
+        <thead>
+            <tr style="background-color:orange">
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th> Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Order_Detail)
+            {
+                <tr>
+                    <td>
+                        @item.ProductTable.Watch_Name
+                    </td>
+                    <td>
+                        @item.Amount
+                    </td>
+                    <td>
+                        @item.ProductTable.Selling_Price.ToString("N0") VNĐ
+                    </td>
+                    <td>
+                        @item.Price.ToString("N0") VNĐ
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-offset" style="border-bottom:double; border-top:double">
+    <p style="text-align:right; font-family:Arial; font-size: 20px">  Tổng hóa đơn: @Model.Total_Price.ToString("N0") VNĐ</p>
+</div>
+<div class="col-lg-offset-10">
+
+    <p>Ngày cập nhật :@Model.Order_ChangeDate</p>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", null, new { @class = " btn btn-primary" })
+    @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-secondary" })
+</p>

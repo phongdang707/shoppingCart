@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ClockUniverse.Order>
+
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2>QUẢN LÝ ĐƠN HÀNG</h2>
+
+<div class="form-group">
+    <table id="mytable" class="display table table-bordered">
+        <thead>
+            <tr style=" background-color:hotpink ;">
+                <th>
+                    Mã đơn hàng
+                <th>
+                    Họ tên khách hàng
+                </th>
+                <th>
+                    Địa chỉ
+                </th>
+                <th>
+                    Tổng tiền
+                </th>
+                <th>
+                    Tình trạng
+                </th>
+                <th>
+                    Ngày cập nhật
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        HD@(item.Order_ID)
+                    </td>
+                    <td>
+                        @item.Customer_Name
+                    </td>
+                    <td>
+                        @item.Deliver_Address
+                    </td>
+                    <td>
+                        @item.Total_Price.ToString("N0")
+                    </td>
+                    <td>
+                        @switch (@item.Deliver_Status)
+                        {
+                            case 1:
+                                <div>Đang xử lý</div>
+                                break;
+                            case 2:
+                                <div>Đã tiếp nhận</div>
+                                break;
+                            case 3:
+                                <div>Đang giao hàng</div>
+                                break;
+                            case 4:
+                                <div>Đã giao hàng</div>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        @item.Order_ChangeDate
+                    </td>
+                    <td>
+                        @Html.ActionLink("Cập nhật", "Edit", new { id = item.Order_ID }, new { @class = " btn btn-primary" }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.Order_ID }, new { @class = "btn btn-info" }) |
+                        @if (item.Deliver_Status != 1)
+                        {
+                            @Html.ActionLink("Hủy", "Delete", new { id = item.Order_ID }, new { @class = "btn btn-default disabled" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Hủy", "Delete", new { id = item.Order_ID }, new { @class = "btn btn-warning" })
+                        }
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+</div>

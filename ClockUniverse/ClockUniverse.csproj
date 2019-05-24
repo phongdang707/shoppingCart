@@ -1,0 +1,839 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1468D806-230C-4BD4-9260-68A541B9C21C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClockUniverse</RootNamespace>
+    <AssemblyName>ClockUniverse</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactsDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CheckOutController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InformationManagerController.cs" />
+    <Compile Include="Controllers\notfoundController.cs" />
+    <Compile Include="Controllers\OrderManagerController.cs" />
+    <Compile Include="Controllers\priceController.cs" />
+    <Compile Include="Controllers\ProductManagerController.cs" />
+    <Compile Include="Controllers\productsController.cs" />
+    <Compile Include="Controllers\product_typesController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Orderdetail.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Detail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\cdn.shopify.com\s\assets\shop_events_listener-acf771159f9849ef6e5265782c99efe8b99406214c96a4373224ecafe285d7bb.js" />
+    <Content Include="Content\cdn.shopify.com\s\assets\storefront\express_buttons-646307822f46ed653e67b5a23f6b2e4a7f38cb3a0df37b067fd9cc5898551c0c.js" />
+    <Content Include="Content\cdn.shopify.com\s\assets\storefront\express_buttons-bcb2a201d4040f3c25cbc3d0d1d0beba882a8eedd972a8e6933d8a79bf878918.js" />
+    <Content Include="Content\cdn.shopify.com\s\assets\storefront\features-72d0c89b58494cbc0e880cb53fa52098fac9eb850c52f5353c2ca188fdaee0b2.js" />
+    <Content Include="Content\cdn.shopify.com\s\assets\themes_support\api.jquery-e94e010e92e659b566dbc436fdfe5242764380e00398907a14955ba301a4749f.js" />
+    <Content Include="Content\cdn.shopify.com\s\assets\themes_support\option_selection-fe6b72c2bbdd3369ac0bfefe8648e3c889efca213baefd4cfb0dd9363563831f.js" />
+    <Content Include="Content\cdn.shopify.com\s\assets\themes_support\shopify_common-8ea6ac3faf357236a97f5de749df4da6e8436ca107bc3a4ee805cbf08bc47392.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\0740\5717\products\11_large30d8.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\0740\5717\products\21_1b737bd3-c656-43be-8e96-6a8aeaaaf19b_large30d8.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\0740\5717\products\42_d3f99124-d8ca-4dd5-b6d2-d74b3feb31b1_large30d8.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\0766\6813\t\2\assets\slideshow_image_1.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\0766\6813\t\2\assets\slideshow_image_2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\0766\6813\t\2\assets\slideshow_image_3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\b-blog-5_1024x1024321c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\b-blog-5_2048x2048_f1d95445-7803-49f8-a977-6bac14f5497e_1024x10243a7b.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\b-blog-5_46af17dd-cbad-474c-879d-a674134fdd2e_1024x102447e0.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\b-blog-6_1024x1024a290.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\b-blog-7_1024x1024110f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\b-blog-7_2048x2048_1b2554d1-b7f0-4684-be1f-3551d0911c4c_1024x10247888.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\b-blog-7_2048x2048_d6b3ec15-5e88-4b60-9b40-852e9f12822f_1024x10246166.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\blog1_2048x2048_ad4bb54e-a883-4919-861c-7f775bf6a075_1024x10243b4f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\blog1_2048x2048_ad4bb54e-a883-4919-861c-7f775bf6a075_2048x20483b4f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\blog2_2048x2048_d1f49af9-30be-4b7f-9785-59c263b7b135_1024x1024f7ba.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\blog3_2048x2048_9a58516d-6d04-469e-8732-5cbc976dac14_1024x1024237d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\blog4_2048x2048_a4295c71-260c-445d-bf1d-5b1f165d6613_1024x10242e19.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\blog5_2048x2048_cd19c54f-6b1c-4c52-b66e-3ae951a8b682_1024x102476cc.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\articles\fashion-man-person-winter_1024x10240050.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\aquacfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\blackcfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\browncfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\camelcfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\darkorangecfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\darkredcfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\goldcfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\greencfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\pinkcfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\redcfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\silvercfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\swirlcfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\files\whitecfcd.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_1024x1024cda9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_82dbfe96-6f6e-413b-8f92-639d7763a11f_1024x1024bb4f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_82dbfe96-6f6e-413b-8f92-639d7763a11f_compactbb4f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_82dbfe96-6f6e-413b-8f92-639d7763a11f_grandebb4f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_97a36d2a-89fa-4e9c-9356-f7f967e51eba_1024x10247101.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_97a36d2a-89fa-4e9c-9356-f7f967e51eba_compact7101.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_97a36d2a-89fa-4e9c-9356-f7f967e51eba_grande7101.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_97a36d2a-89fa-4e9c-9356-f7f967e51eba_large7101.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_97a36d2a-89fa-4e9c-9356-f7f967e51eba_medium7101.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_9b08c85f-5b09-43e9-bbb6-f844f45b113b_1024x1024cda9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_9b08c85f-5b09-43e9-bbb6-f844f45b113b_compactcda9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_9b08c85f-5b09-43e9-bbb6-f844f45b113b_grandecda9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_compactcda9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_fb0d4278-051e-4c34-9b75-83c65caec199_1024x1024c800.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_fb0d4278-051e-4c34-9b75-83c65caec199_compactc800.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_fb0d4278-051e-4c34-9b75-83c65caec199_grandec800.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_grandecda9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_largecda9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black-gold-michael-kors-watch_mediumcda9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Black_Dior_VIII_Grand_Ball_1024x1024ec1d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Black_Dior_VIII_Grand_Ball_127273cb-4fe8-4999-967e-6d6bead4ddc0_1024x1024e380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Black_Dior_VIII_Grand_Ball_127273cb-4fe8-4999-967e-6d6bead4ddc0_compacte380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Black_Dior_VIII_Grand_Ball_127273cb-4fe8-4999-967e-6d6bead4ddc0_grandee380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Black_Dior_VIII_Grand_Ball_compactec1d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Black_Dior_VIII_Grand_Ball_grandeec1d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Black_Dior_VIII_Grand_Ball_largeec1d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Black_Dior_VIII_Grand_Ball_mediumec1d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_1024x1024215f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_62d2332e-32f1-4e21-8cd4-5c957fa12b88_1024x1024a2f1.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_62d2332e-32f1-4e21-8cd4-5c957fa12b88_compacta2f1.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_62d2332e-32f1-4e21-8cd4-5c957fa12b88_grandea2f1.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_compact215f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_e28f4d23-207c-4398-ade2-458999f48377_1024x10245363.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_e28f4d23-207c-4398-ade2-458999f48377_compact5363.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_e28f4d23-207c-4398-ade2-458999f48377_grande5363.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\black_gold_michael_kors_watch_grande215f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_22e91328-e04a-449f-8004-2215b261a4cd_large4f7e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_22e91328-e04a-449f-8004-2215b261a4cd_small4f7e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_e4a3d50e-1dee-4848-9831-dabb81d808ee_1024x10244f7e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_e4a3d50e-1dee-4848-9831-dabb81d808ee_compact4f7e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_e4a3d50e-1dee-4848-9831-dabb81d808ee_grande4f7e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_e4a3d50e-1dee-4848-9831-dabb81d808ee_large4f7e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_1024x1024e380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_compacte380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_eecc47b9-1355-40ca-81f5-5d6def97bda4_1024x1024fde9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_eecc47b9-1355-40ca-81f5-5d6def97bda4_compactfde9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_eecc47b9-1355-40ca-81f5-5d6def97bda4_grandefde9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_eecc47b9-1355-40ca-81f5-5d6def97bda4_largefde9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_eecc47b9-1355-40ca-81f5-5d6def97bda4_mediumfde9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_grandee380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_largee380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Christal_Automatic_Steel_mediume380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_1024x1024b9b4.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_compactb9b4.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_fa27a8e7-d58a-4263-8570-373c49005b6a_1024x1024e6ab.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_fa27a8e7-d58a-4263-8570-373c49005b6a_compacte6ab.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_fa27a8e7-d58a-4263-8570-373c49005b6a_grandee6ab.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_fa27a8e7-d58a-4263-8570-373c49005b6a_largee6ab.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_fa27a8e7-d58a-4263-8570-373c49005b6a_mediume6ab.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_grandeb9b4.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_largeb9b4.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_Grand_Soir_Origami_mediumb9b4.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_1024x1024700c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_a741cb40-826f-4655-a1dc-9b3efe1619ce_1024x102497ab.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_a741cb40-826f-4655-a1dc-9b3efe1619ce_compact97ab.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_a741cb40-826f-4655-a1dc-9b3efe1619ce_grande97ab.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_compact700c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_f5f794e5-60a6-4384-8146-8f0c86ab603e_1024x1024e63b.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_f5f794e5-60a6-4384-8146-8f0c86ab603e_compacte63b.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_f5f794e5-60a6-4384-8146-8f0c86ab603e_grandee63b.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_f5f794e5-60a6-4384-8146-8f0c86ab603e_largee63b.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_f5f794e5-60a6-4384-8146-8f0c86ab603e_mediume63b.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_grande700c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_large700c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Dior_VIII_Grand_Bal_medium700c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_02ead7fb-df97-44e5-8ce9-fd9ae2448542_1024x102444e2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_02ead7fb-df97-44e5-8ce9-fd9ae2448542_compact44e2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_02ead7fb-df97-44e5-8ce9-fd9ae2448542_grande44e2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_02ead7fb-df97-44e5-8ce9-fd9ae2448542_large44e2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_02ead7fb-df97-44e5-8ce9-fd9ae2448542_medium44e2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_1024x1024db43.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_compactdb43.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_grandedb43.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_largedb43.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\kobold_spirit_of_america_mediumdb43.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_1024x1024b494.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_466c99c4-779d-43c9-b38b-0e4f33643e52_1024x1024d821.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_466c99c4-779d-43c9-b38b-0e4f33643e52_compactd821.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_466c99c4-779d-43c9-b38b-0e4f33643e52_granded821.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_5d96505d-50c4-401f-ac0d-973a5a317a0c_1024x1024b4c9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_5d96505d-50c4-401f-ac0d-973a5a317a0c_compactb4c9.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_71eac079-5131-4bbd-8bcf-34176cf4bfe6_1024x1024761f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_71eac079-5131-4bbd-8bcf-34176cf4bfe6_compact761f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_71eac079-5131-4bbd-8bcf-34176cf4bfe6_grande761f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_compactb494.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_grandeb494.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_largeb494.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael-kors-watches-rose-gold_mediumb494.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Michael_kors_Black_Leather_1024x102452a7.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Michael_kors_Black_Leather_compact52a7.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Michael_kors_Black_Leather_grande52a7.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Michael_Kors_Leather_Strap_1024x1024fc43.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Michael_Kors_Leather_Strap_compactfc43.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Michael_Kors_Leather_Strap_grandefc43.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_sawyer_watch_1024x1024c131.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_sawyer_watch_b1543240-797a-4c5f-8098-f89618d9a6e7_1024x10246aa3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_sawyer_watch_b1543240-797a-4c5f-8098-f89618d9a6e7_compact6aa3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_sawyer_watch_b1543240-797a-4c5f-8098-f89618d9a6e7_grande6aa3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_sawyer_watch_b1543240-797a-4c5f-8098-f89618d9a6e7_large6aa3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_sawyer_watch_b1543240-797a-4c5f-8098-f89618d9a6e7_medium6aa3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_sawyer_watch_compactc131.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_sawyer_watch_grandec131.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_watches_rose_gold_1024x1024800e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_watches_rose_gold_c8bb41cb-0f94-456d-a445-2002cb834ea2_1024x102444e2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_watches_rose_gold_c8bb41cb-0f94-456d-a445-2002cb834ea2_compact44e2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_watches_rose_gold_c8bb41cb-0f94-456d-a445-2002cb834ea2_grande44e2.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_watches_rose_gold_compact800e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_watches_rose_gold_grande800e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_watches_rose_gold_large800e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kors_watches_rose_gold_medium800e.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_1024x1024fc2f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_7762d6a2-1946-4316-b53a-dc53d4904e13_1024x10247cf3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_7762d6a2-1946-4316-b53a-dc53d4904e13_compact7cf3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_7762d6a2-1946-4316-b53a-dc53d4904e13_grande7cf3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_7762d6a2-1946-4316-b53a-dc53d4904e13_large7cf3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_7762d6a2-1946-4316-b53a-dc53d4904e13_medium7cf3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_compactfc2f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_e90a3a3c-6663-485d-979d-eeea6e9c8d79_1024x10244af6.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_e90a3a3c-6663-485d-979d-eeea6e9c8d79_compact4af6.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_e90a3a3c-6663-485d-979d-eeea6e9c8d79_grande4af6.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\michael_kor_montre_grandefc2f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_034170e1-0a31-4881-8bbd-5c136df1465d_1024x1024c62d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_034170e1-0a31-4881-8bbd-5c136df1465d_compactc62d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_034170e1-0a31-4881-8bbd-5c136df1465d_grandec62d.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_077b4aa0-d5ac-4c9f-8482-70c79d803c94_1024x1024f380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_077b4aa0-d5ac-4c9f-8482-70c79d803c94_compactf380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_077b4aa0-d5ac-4c9f-8482-70c79d803c94_grandef380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_077b4aa0-d5ac-4c9f-8482-70c79d803c94_largef380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_077b4aa0-d5ac-4c9f-8482-70c79d803c94_mediumf380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_077b4aa0-d5ac-4c9f-8482-70c79d803c94_smallf380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_82fb9013-13c5-490c-8fc2-f53531395297_1024x1024ddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_82fb9013-13c5-490c-8fc2-f53531395297_compactddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_82fb9013-13c5-490c-8fc2-f53531395297_grandeddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_82fb9013-13c5-490c-8fc2-f53531395297_largeddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_82fb9013-13c5-490c-8fc2-f53531395297_mediumddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_fb6a27ae-0fa0-4be1-8691-d85294503b21_1024x1024ddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_fb6a27ae-0fa0-4be1-8691-d85294503b21_compactddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_1024x1024_fb6a27ae-0fa0-4be1-8691-d85294503b21_grandeddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_60ecf93c-379e-42c2-b54f-1e87cba51c34_1024x10245c4c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_60ecf93c-379e-42c2-b54f-1e87cba51c34_compact5c4c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_6c41c008-87da-4204-9019-48d208a44fd8_1024x10243774.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_6c41c008-87da-4204-9019-48d208a44fd8_compact3774.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_b7cf2109-7b24-470d-900a-c6bc8f65b9e6_1024x10244ac3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_b7cf2109-7b24-470d-900a-c6bc8f65b9e6_compact4ac3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_b7cf2109-7b24-470d-900a-c6bc8f65b9e6_grande4ac3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_b7cf2109-7b24-470d-900a-c6bc8f65b9e6_large4ac3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_b7cf2109-7b24-470d-900a-c6bc8f65b9e6_medium4ac3.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_d503953b-ea2d-4162-b22a-6c42694f02fa_1024x1024ddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_d503953b-ea2d-4162-b22a-6c42694f02fa_compactddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_d503953b-ea2d-4162-b22a-6c42694f02fa_grandeddc5.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_f119a423-53b0-44c7-9bff-0559ddfafb47_1024x1024bc69.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_f119a423-53b0-44c7-9bff-0559ddfafb47_compactbc69.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\the-original-unisex-leather_f119a423-53b0-44c7-9bff-0559ddfafb47_grandebc69.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_Classic_Unisex_leather_1024x1024d34c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_Classic_Unisex_leather_compactd34c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_Classic_Unisex_leather_granded34c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_horse_Gold_Black_1024x10248168.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_horse_Gold_Black_48a12e3b-91b6-4881-b0e4-bc42cfdf9313_1024x1024d34c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_horse_Gold_Black_48a12e3b-91b6-4881-b0e4-bc42cfdf9313_compactd34c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_horse_Gold_Black_48a12e3b-91b6-4881-b0e4-bc42cfdf9313_granded34c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_horse_Gold_Black_48a12e3b-91b6-4881-b0e4-bc42cfdf9313_larged34c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_horse_Gold_Black_48a12e3b-91b6-4881-b0e4-bc42cfdf9313_mediumd34c.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_horse_Gold_Black_compact8168.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_horse_Gold_Black_grande8168.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_Original_Unisex_leather_1024x1024990a.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_Original_Unisex_leather_compact990a.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\The_Original_Unisex_leather_grande990a.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\tri-tone-bradshaw-leather_1024x1024_d6d11e8c-2f4d-4a10-a116-cb7290802d4d_1024x1024f380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\tri-tone-bradshaw-leather_1024x1024_d6d11e8c-2f4d-4a10-a116-cb7290802d4d_compactf380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\tri-tone-bradshaw-leather_1024x1024_d6d11e8c-2f4d-4a10-a116-cb7290802d4d_grandef380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\tri-tone-bradshaw-leather_834151c6-53c9-48d9-a97b-81af4eacaf96_1024x1024f380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\tri-tone-bradshaw-leather_834151c6-53c9-48d9-a97b-81af4eacaf96_compactf380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\tri-tone-bradshaw-leather_834151c6-53c9-48d9-a97b-81af4eacaf96_grandef380.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Tri-Tone_Bradshaw_Leather_1024x1024be0f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Tri-Tone_Bradshaw_Leather_compactbe0f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Tri-Tone_Bradshaw_Leather_grandebe0f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Tri-Tone_Bradshaw_Leather_largebe0f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\Tri-Tone_Bradshaw_Leather_mediumbe0f.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\ajaxifycfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\AjaxLoader.gif" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\apmenuitem_ihtml_1cfcd.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\apmenuitem_ihtml_2cfcd.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\ap_multilangcfcd.css" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\ap_multilangcfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\bg_image_v1cfcd.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\blank.gif" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\color-1cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\color-2cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\color-3cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\color-4cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\color-5cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\color-6cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\color-7cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\color-8cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\currencies_img_1cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\currencies_img_2cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\currencies_img_3cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\currencies_img_4cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\currencies_img_5cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\fancybox_loading%402x.html" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\fancybox_sprite%402x.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\fancybox_sprite.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\faviconcfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\flickity.pkgd.mincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\global.scsscfcd.css" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\globalcfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\grabbing.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\handlebars.mincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\home_fourbanner1cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\home_fourbanner2cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\home_fourbanner3cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\home_fourbanner4cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\imagesloaded.pkgd.mincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\img_product_detailcfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\instafeed.mincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\isotope.pkgd.mincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\jquery-1.11.3.mincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\jquery.currencies.mincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\list_collection_defaultcfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\loading.gif" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\loading60c4.gif" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\loadingc729.gif" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\logocfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\maincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\mastercfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\menu.scsscfcd.css" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\modernizr.customcfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\plugincfcd.js" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\product.scsscfcd.css" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\productDefaultcfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\site_temp.scsscfcd.css" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\slideshow_image_1cfcd.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\slideshow_image_2cfcd.jpg" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\soldoutcfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_10cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_1cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_2cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_3cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_4cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_5cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_6cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_7cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_8cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vendor_logo_9cfcd.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vertical_icon_1925c.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vertical_icon_2925c.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vertical_icon_3925c.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vertical_icon_4925c.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vertical_icon_5925c.png" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\t\2\assets\vertical_icon_6925c.png" />
+    <Content Include="Content\cdn.shopify.com\s\global\searchc0d3.css" />
+    <Content Include="Content\cdn.shopify.com\s\javascripts\currencies.js" />
+    <Content Include="Content\cdn.shopify.com\s\javascripts\tricorder\trekkie.storefront.min97e4.js" />
+    <Content Include="Content\maxcdn.bootstrapcdn.com\font-awesome\4.6.1\css\font-awesome.min.css" />
+    <Content Include="Scripts\db\datatables.js" />
+    <Content Include="Scripts\db\datatables.min.js" />
+    <Content Include="Scripts\db\VNLanguage.js" />
+    <Content Include="Scripts\jsM\common-scripts.js" />
+    <Content Include="Scripts\jsM\DT_bootstrap.js" />
+    <Content Include="Scripts\jsM\editable-table.js" />
+    <Content Include="Scripts\jsM\jquery.dataTables.js" />
+    <Content Include="Scripts\jsM\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Scripts\jsM\jquery.scrollTo.min.js" />
+    <Content Include="Scripts\nicescroll\jquery.nicescroll.js" />
+    <Content Include="Scripts\nicescroll\jquery.nicescroll.min.js" />
+    <Content Include="Views\favicon.ico" />
+    <Content Include="fonts\digital-7-webfont.svg" />
+    <Content Include="fonts\digital-7_italic-webfont.svg" />
+    <Content Include="fonts\digital-7_mono-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\star.svg" />
+    <Content Include="fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="fonts\digital-7-webfont.eot" />
+    <Content Include="fonts\digital-7-webfont.ttf" />
+    <Content Include="fonts\digital-7-webfont.woff" />
+    <Content Include="fonts\digital-7_italic-webfont.eot" />
+    <Content Include="fonts\digital-7_italic-webfont.ttf" />
+    <Content Include="fonts\digital-7_italic-webfont.woff" />
+    <Content Include="fonts\digital-7_mono-webfont.eot" />
+    <Content Include="fonts\digital-7_mono-webfont.ttf" />
+    <Content Include="fonts\digital-7_mono-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\star.eot" />
+    <Content Include="fonts\star.ttf" />
+    <Content Include="fonts\star.woff" />
+    <Content Include="fonts\weathericons-regular-webfont.eot" />
+    <Content Include="fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="fonts\weathericons-regular-webfont.woff" />
+    <Content Include="ClassDiagram2.cd" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_22e91328-e04a-449f-8004-2215b261a4cd_1024x1024.1804f7e.del" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_22e91328-e04a-449f-8004-2215b261a4cd_compact.294f7e.delaye" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_22e91328-e04a-449f-8004-2215b261a4cd_grande.1794f7e.delaye" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_22e91328-e04a-449f-8004-2215b261a4cd_medium.17c4f7e.delaye" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_641a68d1-5ef0-4894-a46a-cd5cf14d4c54_1024x1024.1814f7e.del" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_641a68d1-5ef0-4894-a46a-cd5cf14d4c54_compact.1824f7e.delay" />
+    <Content Include="Content\cdn.shopify.com\s\files\1\1200\5998\products\christal-automatic-steelchristal-automatic-steel_1024x1024_641a68d1-5ef0-4894-a46a-cd5cf14d4c54_grande.17a4f7e.delaye" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsM\bootstrap.min.js" />
+    <Content Include="Scripts\jsM\Chart.js" />
+    <Content Include="Scripts\jsM\classie.js" />
+    <Content Include="Scripts\jsM\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jsM\jquery.flexisel.js" />
+    <Content Include="Scripts\jsM\jquery.flot.min.js" />
+    <Content Include="Scripts\jsM\scripts.js" />
+    <Content Include="Scripts\jsM\skycons.js" />
+    <Content Include="Scripts\jsM\uisearch.js" />
+    <Content Include="Scripts\jsM\wow.min.js" />
+    <Content Include="Scripts\js\custom.js" />
+    <Content Include="Scripts\js\custom2.js" />
+    <Content Include="Scripts\js\jquery.carouFredSel-6.0.0-packed.js" />
+    <Content Include="Scripts\js\jquery.countTo.js" />
+    <Content Include="Scripts\js\jquery.dlmenu.js" />
+    <Content Include="Scripts\js\jquery.isotope.min.js" />
+    <Content Include="Scripts\js\jquery.js" />
+    <Content Include="Scripts\js\jquery.nivo.slider.js" />
+    <Content Include="Scripts\js\portfolio.js" />
+    <Content Include="Scripts\js\scripts.min.js" />
+    <Content Include="Scripts\js\waypoints.min.js" />
+    <Content Include="Scripts\js\wow.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\rs-plugin\js\jquery.themepunch.revolution.js" />
+    <Content Include="Scripts\rs-plugin\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Scripts\rs-plugin\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Scripts\vendors\animo\Animo.js" />
+    <Content Include="Scripts\vendors\bxslider\jquery.bxslider.js" />
+    <Content Include="Scripts\vendors\bxslider\jquery.bxslider.min.js" />
+    <Content Include="Scripts\vendors\bxslider\plugins\jquery.easing.1.3.js" />
+    <Content Include="Scripts\vendors\bxslider\plugins\jquery.fitvids.js" />
+    <Content Include="Scripts\vendors\circliful\jquery.circliful.min.js" />
+    <Content Include="Scripts\vendors\colorbox\jquery.colorbox-min.js" />
+    <Content Include="Scripts\vendors\colorbox\jquery.colorbox.js" />
+    <Content Include="Scripts\vendors\countdown\jquery.countdown.min.js" />
+    <Content Include="Scripts\vendors\countdown\jquery.plugin.min.js" />
+    <Content Include="Scripts\vendors\dug\dug.js" />
+    <Content Include="Scripts\vendors\jqueryui\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Scripts\vendors\jqueryui\jquery-ui-1.10.4.custom.min_old.js" />
+    <Content Include="Scripts\vendors\media\mediaelement-and-player.min.js" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrowleft.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrowright.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrow_large_left.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrow_large_right.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrow_left.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrow_left2.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrow_right.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrow_right2.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\black50.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\boxed_bgtile.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\bullet.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\bullets.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\bullets2.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\bullet_boxed.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\coloredbg.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\grain.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\gridtile.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\gridtile_3x3.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\gridtile_3x3_white.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\gridtile_white.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\large_left.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\large_right.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\loader.gif" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\loader2.gif" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\navigdots.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\navigdots_bgtile.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\shadow1.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\shadow2.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\shadow3.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\small_left.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\small_left_boxed.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\small_right.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\small_right_boxed.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\timer.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\timerdot.png" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\transparent.jpg" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\white50.png" />
+    <Content Include="Scripts\vendors\revolution-slider\images\decor_inside.png" />
+    <Content Include="Scripts\vendors\revolution-slider\images\decor_inside_white.png" />
+    <Content Include="Scripts\vendors\revolution-slider\images\decor_testimonial.png" />
+    <Content Include="Scripts\vendors\revolution-slider\images\gradient\g30.png" />
+    <Content Include="Scripts\vendors\revolution-slider\images\gradient\g40.png" />
+    <Content Include="Scripts\vendors\roundabout\jquery.roundabout.min.js" />
+    <Content Include="Scripts\vendors\utils\beta.utils.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\notfound\Index.cshtml" />
+    <Content Include="Views\CheckOut\Index.cshtml" />
+    <Content Include="Views\price\Index.cshtml" />
+    <Content Include="Views\products\Index.cshtml" />
+    <Content Include="Views\product_types\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\SignUp\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutManage.cshtml" />
+    <Content Include="Views\ProductManager\Create.cshtml" />
+    <Content Include="Views\ProductManager\Delete.cshtml" />
+    <Content Include="Views\ProductManager\Edit.cshtml" />
+    <Content Include="Views\ProductManager\Index.cshtml" />
+    <Content Include="Views\InformationManager\Delete.cshtml" />
+    <Content Include="Views\InformationManager\Index.cshtml" />
+    <Content Include="Views\InformationManager\Edit.cshtml" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\arrows.psd" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\bullets.psd" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\small_arrows.psd" />
+    <Content Include="Scripts\vendors\revolution-slider\assets\Thumbs.db" />
+    <Content Include="Scripts\vendors\revolution-slider\images\gradient\Thumbs.db" />
+    <Content Include="Scripts\vendors\revolution-slider\images\Thumbs.db" />
+    <Content Include="Views\product_types\ListType.cshtml" />
+    <Content Include="Views\products\product_detail.cshtml" />
+    <Content Include="Views\InformationManager\Create.cshtml" />
+    <Content Include="Views\InformationManager\Details.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\ShoppingCart\ShoppingCart.cshtml" />
+    <Content Include="Views\ShoppingCart\CartPartial.cshtml" />
+    <Content Include="Views\ShoppingCart\EditShoppingCart.cshtml" />
+    <Content Include="Views\OrderManager\Delete.cshtml" />
+    <Content Include="Views\ShoppingCart\_TotalPartial.cshtml" />
+    <Content Include="Views\OrderManager\Details.cshtml" />
+    <Content Include="Views\OrderManager\Index.cshtml" />
+    <Content Include="Views\OrderManager\Edit.cshtml" />
+    <Content Include="Views\ProductManager\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12024</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12024/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:12024/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

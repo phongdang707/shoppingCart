@@ -1,0 +1,111 @@
+﻿@using ClockUniverse.Models;
+@model List<ShoppingCart>
+@{
+    ViewBag.Title = "EditShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    h3 {
+        margin-top: 20px;
+        margin-left: 122px;
+    }
+    img.pull-left {
+        width: 80px;
+        height: 80px;
+    }
+    input[type="submit"] {
+        width: 143px;
+        height: 36px;
+        border-radius: 4px;
+        color: white;
+        background-color: #0277b8;
+        font-size: 17px;
+        font-weight: 500;
+        border: none;
+    }
+    input#txtSoLuong {
+        margin-bottom: 10px;
+    }
+</style>
+<h3>EditShoppingCart</h3>
+
+
+<!-- #header -->
+
+
+<div class="container">
+    <div id="content">
+
+        <div class="table-responsive">
+            <!-- Shop Products Table -->
+            <table class="shop_table beta-shopping-cart-table" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th class="product-name">Product</th>
+                        <th class="product-price">Price</th>
+                        <th class="product-status">Status</th>
+                        <th class="product-quantity">Qty.</th>
+                        <th class="product-subtotal">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="cart_item">
+                            <td class="product-name">
+                                <div class="media">
+                                    <img class="pull-left" src="@Url.Content("~/productmanager/Image/"+item.iMaSP)" alt="">
+                                    <div class="media-body">
+                                        <p class="font-large table-title">@item.TenSP</p>
+                                        @if (@item.type == 0)
+                                        {
+                                            <p class="table-option">Nam</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="table-option">Nu</p>
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="product-price">
+                                <span class="amount">
+                                    @string.Format("{0:0,0}", item.donGia)₫
+                                </span>
+                            </td>
+                            <td class="product-status">
+                                In Stock
+                            </td>
+                            <td class="product-quantity">
+                                @using (Html.BeginForm("UpdateShoppingCart", "ShoppingCart", new { @iMaSP = item.iMaSP }))
+                                {
+                                    <p>
+                                        @Html.TextBox("txtSoLuong", item.soLuong)
+                                    </p>
+                                    <input type="submit" value="Cập nhật" />
+                                }
+
+                            </td>
+                            <td class="product-subtotal">
+                                <span class="amount">
+                                    @string.Format("{0:0,0}", item.thanhTien)₫
+                                </span>
+                            </td>
+                            
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+            <!-- End of Shop Table Products -->
+        </div>
+
+        <!-- Cart Collaterals -->
+        <!-- End of Cart Collaterals -->
+        <div class="clearfix"></div>
+    </div> <!-- #content -->
+</div> <!-- .container -->
+<!-- #footer -->
+<!-- .copyright -->
+<!-- include js files -->

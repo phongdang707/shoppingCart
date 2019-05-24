@@ -1,0 +1,84 @@
+﻿@model  ClockUniverse.Order
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutManage.cshtml";
+}
+
+<h2 style="text-align:center;color:red">XÁC NHẬN HỦY ĐƠN HÀNG</h2>
+
+<h3></h3>
+<div>
+
+    <div class="form-group fa-border " style="border-color:aquamarine; font-family:Arial;font-size: 20px ">
+        <table class="table table-striped ">
+            <tr>
+                <td> Mã đơn hàng</td>
+                <td>
+                    HD@(Model.Order_ID)
+                </td>
+            </tr>
+            <tr>
+                <td> Họ tên khách hàng</td>
+                <td>
+                    @Model.Customer_Name
+                </td>
+            </tr>
+            <tr>
+                <td> Email</td>
+                <td>
+                    @Model.Customer_Email
+                </td>
+            </tr>
+            <tr>
+                <td> SDT</td>
+                <td>
+                    @Model.Customer_Phone
+                </td>
+            </tr>
+            <tr>
+                <td> Địa chỉ</td>
+                <td>
+                    @Model.Deliver_Address
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="form-group">
+        <table class=" table table-bordered">
+            <tr style="background-color:orange">
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+            </tr>
+            @foreach (var item in Model.Order_Detail)
+            {
+                <tr>
+                    <td>@item.ProductTable.Watch_Name</td>
+                    <td>@item.Amount</td>
+                    <td>@item.ProductTable.Selling_Price.ToString("N0")</td>
+                    <td>@item.Price.ToString("N0") </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="col-lg-offset" style="border-bottom:double; border-top:double">
+        <p style="text-align:right; font-family:Arial; font-size: 20px">  Tổng hóa đơn: @Model.Total_Price.ToString("N0")</p>
+    </div>
+    <div class="col-lg-offset-10">
+        Ngày cập nhật :@Model.Order_ChangeDate
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Quay lại", "Index", null, new { @class = " btn btn-warning" })
+        </div>
+    }
+</div>

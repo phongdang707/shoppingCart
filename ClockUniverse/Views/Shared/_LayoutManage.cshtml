@@ -1,0 +1,216 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Shop Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="/Content/cssM/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="/Content/cssM/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="/Content/cssM/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="/Content/icon-font.min.css" type='text/css' />
+    <!-- //lined-icons -->
+    <!-- chart -->
+    <script src="/Scripts/jsM/Chart.js"></script>
+    <!-- //chart -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+
+    <link href="~/Content/db/datatables.min.css" rel="stylesheet" />
+
+    <link href="~/Content/db/datatables.css" rel="stylesheet" />
+    <link href="/Content/cssM/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script src="/Scripts/jsM/wow.min.js"></script>
+    <script>
+        https://www.google.com.vn/search?q=scripts+mvc&tbm=isch&source=iu&ictx=1&fir=o51-4qzxi5L7HM%253A%252CehDmSRi5CLCNUM%252C_&vet=1&usg=AI4_-kRteMZAMWrB8LYHsufp_GrkUirYJw&sa=X&ved=2ahUKEwjlkcLEhJ_iAhWGyYsBHX0VBmcQ9QEwDnoECAkQDA#imgrc=o51-4qzxi5L7HM:
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <!----webfonts--->
+    <link href='//fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <!---//webfonts--->
+    <!-- Meters graphs -->
+    <script src="/Scripts/jsM/jquery-1.10.2.min.js"></script>
+    <!-- Placed js at the end of the document so the pages load faster -->
+
+</head>
+
+
+<body class="sticky-header left-side-collapsed">
+
+    @RenderSection("Scripts", required: false)
+    <section>
+
+        <!-- left side start-->
+        <div class="left-side sticky-left-side" >
+
+            <!--logo and iconic logo start-->
+            <div class="logo">
+                <h1><a href="@Url.Action("Index","ProductManager")">Easy <span>Admin</span></a></h1>
+            </div>
+            <div class="logo-icon text-center">
+                <a href="@Url.Action("Index","ProductManager")"><i class="lnr lnr-home"></i> </a>
+            </div>
+
+            <!--logo and iconic logo end-->
+            <div class="left-side-inner">
+
+                <!--sidebar nav start-->
+                <ul class="nav nav-pills nav-stacked custom-nav" >
+
+
+                    <li><a href="@Url.Action("Index","ProductManager")"><i class="glyphicon glyphicon-th-large"></i><span>PRODUCTS</span></a></li>
+
+                    <li>
+                        <a href="@Url.Action("Index","OrderManager")"><i class="glyphicon glyphicon-th-list"></i><span>Hóa đơn</span></a>
+                    </li>
+                    <li><a href="@Url.Action("Index","InformationManager")"><i class="glyphicon glyphicon-headphones"></i> <span>Feedback</span></a></li>
+                    <li><a href="@Url.Action("Manage","Account")"><i class="glyphicon glyphicon-user"></i> <span>Quản lý Nhân viên</span></a></li>
+
+                </ul>
+                <!--sidebar nav end-->
+            </div>
+        </div>
+        <!-- left side end-->
+        <!-- main content start-->
+        <div class="main-content main-content2 main-content2copy">
+            <!-- header-starts -->
+            <div class="header-section">
+
+                <!--toggle button start-->
+                <!--toggle button end-->
+                <!--notification menu start -->
+                <div class="menu-right">
+                    <div class="user-panel-top">
+                        <div class="profile_details_left">
+                            <ul class="nofitications-dropdown">
+                                <li class="login_box" id="loginContainer">
+                                    <div class="search-box">
+                                        <div id="sb-search" class="sb-search">
+                                            <form>
+                                                <input class="sb-search-input" placeholder="Enter your search term..." type="search" id="search">
+                                                <input class="sb-search-submit" type="submit" value="">
+                                                <span class="sb-icon-search"> </span>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- search-scripts -->
+                                    <script src="/Scripts/jsM/classie.js"></script>
+                                    <script src="/Scripts/jsM/uisearch.js"></script>
+                                    <script>
+                                        new UISearch(document.getElementById('sb-search'));
+                                    </script>
+                                    <!-- //search-scripts -->
+                                </li>
+
+
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                        <div class="profile_details">
+                            <ul>
+                                <li class="dropdown profile_details_drop">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="profile_img">
+
+                                            <div class="user-name">
+                                                <p>Michael<span>Administrator</span></p>
+                                            </div>
+                                            <i class="lnr lnr-chevron-down"></i>
+                                            <i class="lnr lnr-chevron-up"></i>
+
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu drp-mnu">
+                                        <li> <a href="#"><i class="fa fa-cog"></i> Cập nhật</a> </li>
+                                        <li> <a href="#"><i class="fa fa-user"></i>Thông tin cá nhân</a> </li>
+                                        <li> <a href="sign-up.html"><i class="fa fa-sign-out"></i> Đăng xuất</a> </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!--notification menu end -->
+            </div>
+            <!-- //header-ends -->
+            <div id="page-wrapper">
+                @RenderBody()
+            </div>
+        </div>
+        <!--footer section start-->
+        <footer>
+            <p>&copy 2015 Easy Admin Panel. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts.</a></p>
+        </footer>
+        <!--footer section end-->
+    </section>
+    <!-- Bootstrap Core JavaScript -->
+
+
+
+
+    
+    <script src="/Scripts/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="/Scripts/nicescroll/jquery.nicescroll.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="/Scripts/db/datatables.js"></script>
+    <script src="/Scripts/db/VNLanguage.js"></script>
+    <script src="/Scripts/jsM/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".numberinput").forceNumeric();
+        });
+
+        // forceNumeric() plug-in implementation
+        jQuery.fn.forceNumeric = function () {
+            return this.each(function () {
+                $(this).keydown(function (e) {
+                    var key = e.which || e.keyCode;
+
+                    if (!e.shiftKey && !e.altKey && !e.ctrlKey &&
+                        // numbers
+                        key >= 48 && key <= 57 ||
+                        // Numeric keypad
+                        key >= 96 && key <= 105 ||
+                        // comma, period and minus, . on keypad
+                        key == 190 || key == 188 || key == 109 || key == 110 ||
+                        // Backspace and Tab and Enter
+                        key == 8 || key == 9 || key == 13 ||
+                        // Home and End
+                        key == 35 || key == 36 ||
+                        // left and right arrows
+                        key == 37 || key == 39 ||
+                        // Del and Ins
+                        key == 46 || key == 45)
+                        return true;
+
+                    return false;
+                });
+            });
+        }
+    </script>
+</body>
+</html>

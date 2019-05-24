@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6ca4293b2d9e4c819101c0372f8690e3" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="CsK23T3bModel.Contact" Width="1.5" PointX="5.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3bModel.ContactsDetail" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3bModel.Order_Detail" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3bModel.Order" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3bModel.ProductTable" Width="1.5" PointX="3.375" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CsK23T3bModel.ProductType" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="CsK23T3bModel.Contact_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="CsK23T3bModel.Order_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="CsK23T3bModel.Watch_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="CsK23T3bModel.FK_ProductType_WatchType" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CsK23T3bModel.sysdiagram" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CsK23T3bModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CsK23T3bModel.AspNetRole" Width="1.5" PointX="0.75" PointY="10.5" />
+        <EntityTypeShape EntityType="CsK23T3bModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="9" />
+        <EntityTypeShape EntityType="CsK23T3bModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="11.75" />
+        <EntityTypeShape EntityType="CsK23T3bModel.AspNetUser" Width="1.5" PointX="3" PointY="10" />
+        <AssociationConnector Association="CsK23T3bModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" />
+        <AssociationConnector Association="CsK23T3bModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="CsK23T3bModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
